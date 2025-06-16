@@ -1,7 +1,7 @@
 # Library-Management-System-using-SQL-Project
 This project demonstrates the implementation of a Library Management System using SQL. It includes creating and managing tables, performing CRUD operations, and executing advanced SQL queries. The goal is to showcase skills in database design, manipulation, and querying.
 
-**This is ERR Diagram**
+**This is ER Diagram**
 
 ![Screenshot 2025-06-16 200331](https://github.com/user-attachments/assets/55eb248c-32c8-41bc-b471-671bbf69e7c9)
 
@@ -349,3 +349,14 @@ order by no_book_issued desc
 limit 3;
 
 ```
+
+## ReportsMore actions
+
+- **Database Schema**: Detailed table structures and relationships.
+- **Data Analysis**: Insights into book categories, employee salaries, member registration trends, and issued books.
+- **Summary Reports**: Aggregated data on high-demand books and employee performance.
+
+## Conclusion
+
+This project demonstrates the application of SQL skills in creating and managing a library management system. It includes database setup, data manipulation, and advanced querying, providing a solid foundation for data management and analysis.More actions
+

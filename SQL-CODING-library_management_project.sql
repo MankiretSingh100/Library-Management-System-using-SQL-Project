@@ -1,4 +1,5 @@
 -- Task 1. Create a New Book Record -- "978-1-60129-456-2', 'To Kill a Mockingbird', 'Classic', 6.00, 'yes', 'Harper Lee', 'J.B. Lippincott & Co.')"
+
 SELECT 
     *
 FROM
@@ -10,7 +11,12 @@ SELECT
 FROM
     books;
 
+
+
+
+
 -- Task 2: Update an Existing Member's Address 
+
 SELECT 
     *
 FROM
@@ -25,8 +31,14 @@ SELECT
 FROM
     members;
 
--
+
+
+
+
+
 -- Task 3: Delete a Record from the Issued Status Table -- Objective: Delete the record with issued_id = 'IS121' from the issued_status table .
+
+
 SELECT 
     *
 FROM
@@ -34,6 +46,10 @@ FROM
 delete from issued_status 
 where issued_id='IS121'
 
+
+
+
+   
 
 -- Task 4 :  Retrieve All Books Issued by a Specific Employee -- Objective: Select all books issued by the employee with emp_id = 'E101'.
 
@@ -45,6 +61,12 @@ FROM
 WHERE
     issued_emp_id = 'E101';
 
+
+
+
+
+
+
 -- Task 5: List Members Who Have Issued More Than One Book -- Objective: Use GROUP BY to find members who have issued more than one book. 
 
 
@@ -54,6 +76,11 @@ FROM
     issued_status
 GROUP BY issued_emp_id
 HAVING COUNT(*) > 1;
+
+
+
+
+
 
 -- CTAS (Create Table As Select)
 -- Task 6: Create Summary Tables: Used CTAS to generate new tables based on query results - each book and total book_issued_cnt**
@@ -66,6 +93,11 @@ on b.isbn=ist.issued_book_isbn
 group by b.isbn , b.book_title;
 
 select * from book_issued_count;
+
+
+
+
+
 
 
 -- Data Analysis & Findings
@@ -81,6 +113,10 @@ FROM books
 WHERE category IN ('classic', 'Children');
 
 
+
+
+
+
 -- Task 8: Find Total Rental Income by Category:
 SELECT * FROM books;
 
@@ -92,6 +128,12 @@ FROM
     issued_status AS ist
     ON b.isbn = ist.issued_book_isbn
 GROUP BY b.category;
+
+
+
+
+
+
 
  -- task 9 : List Members Who Registered in the Last 180 Days:
  SELECT * FROM `library-system-management`.members;
@@ -105,6 +147,11 @@ GROUP BY b.category;
  SELECT *
 FROM members
 WHERE reg_date >= current_date - INTERVAL 180 DAY;
+
+
+
+
+
 
  
  
@@ -127,6 +174,12 @@ ON e1.branch_id = b.branch_id
 JOIN
 employees as e2
 ON e2.emp_id = b.manager_id;
+
+
+
+
+
+
 
 -- Task 11. Create a Table of Books with Rental Price Above a Certain Threshold 7USD :
 SELECT * FROM books;

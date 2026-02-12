@@ -1,0 +1,32 @@
+name: Run SQL Queries
+
+on: [push, pull_request]
+
+jobs:
+  run-sql:
+    runs-on: ubuntu-latest
+    
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: library_db
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+        ports:
+          - 3306:3306
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Run SQL Script
+        run: |
+          mysql -h 127.0.0.1 -u root -proot library_db < SQL-CODING-library_management_project.sql
+      
+      - name: Verify Data
+        run: |
+          mysql -h 127.0.0.1 -u root -proot library_db -e "SHOW TABLES;"
